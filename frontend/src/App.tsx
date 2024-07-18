@@ -1,7 +1,9 @@
+import Hero from "./pages/Hero";
+
 function App() {
   return (
     <>
-    This is my react app
+    <Hero/>
     </>
   );
 }
