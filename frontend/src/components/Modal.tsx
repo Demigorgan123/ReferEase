@@ -17,7 +17,7 @@ function Modal(props: modalProps) {
     const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
     return (
         <div className="h-screen flex items-center justify-center">
-            <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
+            <div className="w-96 mx-auto bg-white p-8 rounded-lg shadow-md">
                 <h2 className="text-3xl font-bold mb-8 text-center text-[#1A73E8]">Referral Form</h2>
                 <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col space-y-4">
                     <div>
