@@ -1,12 +1,12 @@
 import prisma from '../DB/db.config.js'
 
 export const createReferalDetails = async (req, resp) =>{
-    const {referFrom, referTo, code} = req.body;
+    const {referFrom, referTo, referralCode} = req.body;
     const newReferalDetails = await prisma.referalDetails.create({
         data:{
             referFrom: referFrom,
             referTo: referTo,
-            code: code
+            code: referralCode
         }
     })
     return resp.json({status:200, data:newReferalDetails, msg:"Referal detail created"})
