@@ -29,8 +29,8 @@ function Modal(props: modalProps) {
         <div className="h-screen flex items-center justify-center">
             <div className="w-96 mx-auto bg-white p-8 rounded-lg shadow-[1px_2px_30px_rgba(0,0,0,0.2)] relative">
                 <button type='button' onClick={handleClose} className="absolute top-3 right-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
                     </svg>
                 </button>
                 <h2 className="text-3xl font-bold mb-8 text-center text-[#1A73E8]">Referral Form</h2>
