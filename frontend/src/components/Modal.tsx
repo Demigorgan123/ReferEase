@@ -1,5 +1,7 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import SuccessAlert from "./SuccessAlert";
+import ErrorAlert from "./ErrorAlert";
 
 type modalProps = {
     toggleModal: Dispatch<SetStateAction<boolean>>
@@ -14,19 +16,31 @@ function Modal(props: modalProps) {
         props.toggleModal(false)
     }
     const { register, handleSubmit, formState: { errors } } = useForm<Inputs>()
-    const onSubmit: SubmitHandler<Inputs> = async(data) => {
-        console.log(JSON.stringify(data))
-        const resp = await fetch("http://localhost:5000", {
-            method:"POST",
-            body: JSON.stringify(data),
-            headers: { 
-                "Content-type": "application/json; charset=UTF-8"
-            } 
-        })
-        console.log(await resp.json());
+    const [success, setSuccess] = useState<string>('');
+    const [error, setError] = useState<string>('');
+    const onSubmit: SubmitHandler<Inputs> = async (data) => {
+        setSuccess('');
+        setError('');
+        try {
+            const resp = await fetch("http://localhost:5000", {
+                method: "POST",
+                body: JSON.stringify(data),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                }
+            })
+            setSuccess('Success: Details created')
+            // console.log(await resp.json());
+
+        } catch (error) {
+            setError('Something went wrong')
+            // console.log(error)
+        }
     }
     return (
         <div className="h-screen flex items-center justify-center">
+            {success && <SuccessAlert successMsg={success}/>}
+            {error && <ErrorAlert errorMsg={error}/>}
             <div className="w-96 mx-auto bg-white p-8 rounded-lg shadow-[1px_2px_30px_rgba(0,0,0,0.2)] relative">
                 <button type='button' onClick={handleClose} className="absolute top-3 right-3">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-5">
