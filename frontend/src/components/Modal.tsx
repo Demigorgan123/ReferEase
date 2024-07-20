@@ -14,7 +14,17 @@ function Modal(props: modalProps) {
         props.toggleModal(false)
     }
     const { register, handleSubmit, formState: { errors } } = useForm<Inputs>()
-    const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
+    const onSubmit: SubmitHandler<Inputs> = async(data) => {
+        console.log(JSON.stringify(data))
+        const resp = await fetch("http://localhost:5000", {
+            method:"POST",
+            body: JSON.stringify(data),
+            headers: { 
+                "Content-type": "application/json; charset=UTF-8"
+            } 
+        })
+        console.log(await resp.json());
+    }
     return (
         <div className="h-screen flex items-center justify-center">
             <div className="w-96 mx-auto bg-white p-8 rounded-lg shadow-[1px_2px_30px_rgba(0,0,0,0.2)] relative">
