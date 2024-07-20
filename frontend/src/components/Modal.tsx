@@ -22,7 +22,11 @@ function Modal(props: modalProps) {
         setSuccess('');
         setError('');
         try {
+<<<<<<< HEAD
             const resp = await fetch("https://referease-backend.onrender.com", {
+=======
+            const resp = await fetch("http://localhost:5000", {
+>>>>>>> 1870bca1623c9b8134a6a664389af5575bbe715b
                 method: "POST",
                 body: JSON.stringify(data),
                 headers: {
