@@ -30,15 +30,13 @@ function Modal(props: modalProps) {
                 }
             })
             setSuccess('Success: Details created')
-            // console.log(await resp.json());
 
         } catch (error) {
             setError('Something went wrong')
-            // console.log(error)
         }
     }
     return (
-        <div className="h-screen flex items-center justify-center">
+        <div className="h-screen flex items-center justify-center p-5">
             {success && <SuccessAlert successMsg={success}/>}
             {error && <ErrorAlert errorMsg={error}/>}
             <div className="w-96 mx-auto bg-white p-8 rounded-lg shadow-[1px_2px_30px_rgba(0,0,0,0.2)] relative">

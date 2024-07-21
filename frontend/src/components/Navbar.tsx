@@ -1,7 +1,7 @@
 function Navbar() {
     return (
         <div>
-            <div className="flex m-auto w-fit gap-12 bg-[#1A73E81C] py-2 px-10 rounded-full">
+            <div className="flex m-auto w-fit gap-6 md:gap-12 bg-[#1A73E81C] py-2 px-10 rounded-full mt-8">
                 <div className="flex flex-col text-[#1A73E8] items-center">
                     <a href="#">Refer</a>
                     <div className="w-1 h-1 rounded-full bg-[#1A73E8]"></div>
